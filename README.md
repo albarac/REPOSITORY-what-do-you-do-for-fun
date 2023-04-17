@@ -5,7 +5,7 @@ Programsko Inženjerstvo Projekt
 - Naziv aplikacije: What do you do for fun?
 - Izradio: Aleks Barać
 - Fakultet informatike u Puli (https://fipu.unipu.hr/)
-- Kolegij: Programsko inženjerstvo (ntankovic.unipu.hr/pi)
+- Kolegij: Programsko inženjerstvo (https://fiputreca.notion.site/fiputreca/Programsko-in-enjerstvo-e353945331df468e8382cdad1e91c4b8)
 
 - Mentor: doc. dr. sc. Nikola Tanković (https://fipu.unipu.hr/fipu/nikola.tankovic)
 
