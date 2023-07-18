@@ -30,7 +30,7 @@
   
 <script>
 import { firebase, db } from '@/firebase';
-
+import image from '../assets/profileimage.png'
 export default {
   name: 'Signup',
   data() {
@@ -40,9 +40,30 @@ export default {
       passwordRepeat: '',
       showError: false,
       errorMsg: '',
+      proPic64: '',
     };
   },
+  mounted() {
+    this.getImage();
+  },
   methods: {
+    async getImage() {
+      fetch(image)
+        .then(response => response.blob())
+        .then(blob => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const base64Data = reader.result;
+            console.log(base64Data)
+            this.proPic64 = base64Data;
+            // Use the base64Data as needed
+          };
+          reader.readAsDataURL(blob);
+        })
+        .catch(error => {
+          console.error('Error loading image:', error);
+        });
+    },
     signup() {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         .then(() => {
@@ -54,7 +75,7 @@ export default {
               description: '',
               hobbies: '',
               freetime: '',
-              userimage: ''
+              userimage: this.proPic64,
             })
             .then(function () {
               console.log("Document successfully written!");
