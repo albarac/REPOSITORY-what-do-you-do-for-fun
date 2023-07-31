@@ -63,7 +63,7 @@ export default {
 </script>
 <style lang="scss">
 #toolbar {
-    background-color: rgb(72, 69, 69);
+    background-color: rgb(70, 70, 70);
     color: whitesmoke;
 }
 
