@@ -2,7 +2,7 @@
   <div class='home'>
 
     <div class="flex-container">
-      <v-card id="cathCard" class="mx-auto" max-width="240">
+      <v-card id="cathCard" class="mx-auto" max-width="240" @click="goAct">
         <v-img src="@/assets/activityhobby.png" height="200px" cover></v-img>
 
         <v-card-title>
@@ -51,7 +51,13 @@
 
 export default {
   name: 'Home',
+  methods: {
+    goAct() {
+      this.$router.push({ name: "activity" })
+    }
+  }
 }
+
 </script>
 <style lang="scss">
 .flex-container {
@@ -64,5 +70,9 @@ export default {
 
 #cathCard {
   margin: 30px;
+}
+
+#cathCard:hover {
+  cursor: pointer;
 }
 </style>
