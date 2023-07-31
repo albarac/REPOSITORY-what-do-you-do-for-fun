@@ -4,6 +4,9 @@ import HomeView from '../views/HomeView.vue'
 import Signup from '../views/Signup.vue'
 import Login from '../views/Login.vue'
 import Profile from '../views/Profile.vue'
+import FeedAct from '../views/FeedAct.vue'
+import NewPost from '../views/NewPost.vue'
+
 
 Vue.use(VueRouter)
 
@@ -35,7 +38,17 @@ const routes = [
     path: '/profile',
     name: 'profile',
     component: Profile
-  }
+  },
+  {
+    path: '/activity',
+    name: 'activity',
+    component: FeedAct
+  },
+  {
+    path: '/newpost',
+    name: 'newpost',
+    component: NewPost
+  },
 ]
 
 const router = new VueRouter({
