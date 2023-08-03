@@ -119,6 +119,6 @@ export default {
 }
 
 #editbtn {
-    background-color: rgb(18, 168, 218);
+    background-color: rgb(18, 168, 218),
 }
 </style>

@@ -45,17 +45,16 @@ export default {
             reader.readAsDataURL(this.file);
         },
         post() {
-            let id = this.store.userEmail;
-            db.collection(this.category)
-                .doc()
-                .set({
+            db.collection("Posts")
+                .add({
+                    email: this.store.userEmail,
                     category: this.category,
                     content: this.content,
                     tags: `#${this.tags}`,
                     image: this.image,
                     userimage: this.store.userImage,
                     username: this.store.userName,
-                    email: this.store.userEmail,
+                    category: this.category,
                 })
                 .then(function () {
                     console.log("Document successfully written!");

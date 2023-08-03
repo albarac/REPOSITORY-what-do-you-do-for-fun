@@ -66,7 +66,7 @@ const routes = [
     component: NewPost
   },
   {
-    path: '/popup:id',
+    path: '/popup/:id',
     name: 'popup',
     props:true,
     component: Popup

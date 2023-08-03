@@ -1,7 +1,7 @@
 <template>
     <div class="main-activity">
         <div class="row">
-            <v-btn @click="goNewPost()" variant="tonal"> New Post </v-btn>
+            <v-btn @click="goNewPost()" variant="tonal" color='#12a8da'> New Post </v-btn>
             <div id="search">
                 <v-text-field id="search" prepend-icon="mdi-magnify" v-model="searchQuery" @input="getAct"></v-text-field>
             </div>
@@ -32,21 +32,24 @@ export default {
             this.$router.push({ name: "newpost" });
         },
         getAct() {
-            this.documents = []
-            const collectionRef = db.collection("Activity");
+            this.documents = [];
+            const collectionRef = db.collection("Posts");
+
             if (this.searchQuery === "") {
-                collectionRef.onSnapshot((querySnapshot) => {
-                    this.documents = querySnapshot.docs.map((doc) => doc.data());
+                collectionRef.where("category", "==", "Activity").onSnapshot((querySnapshot) => {
+                    this.documents = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+                    console.log("Activity documents: ", this.documents);
                 });
             } else {
-                db.collection("Activity")
+                db.collection("Posts")
+                    .where("category", "==", "Activity")
                     .where("tags", ">=", `#${this.searchQuery}`)
                     .where("tags", "<=", `#${this.searchQuery}` + "\uf8ff")
                     .onSnapshot((querySnapshot) => {
-                        this.documents = querySnapshot.docs.map((doc) => doc.data());
+                        this.documents = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+                        console.log("Activity documents: ", this.documents);
                     });
             }
-            console.log("Activity documents: ", this.documents);
         },
     },
 };
