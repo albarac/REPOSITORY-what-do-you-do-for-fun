@@ -1,5 +1,5 @@
 <template>
-    <v-card id="postAct" class="mx-auto" color="#484545" dark>
+    <v-card id="postAct" class="mx-auto" color="#484545" dark @click="goPopup">
         <v-card-title>
             <img id="postImg" :src="info.userimage">
             <span class="text-h6 font-weight-light">{{ info.username }}</span>
@@ -26,6 +26,11 @@
 <script>
 export default {
     props: ["info"],
+    methods: {
+        goPopup() {
+            this.$router.push({ path: `popup/${this.info.id}` })
+        }
+    }
 };
 </script>
   

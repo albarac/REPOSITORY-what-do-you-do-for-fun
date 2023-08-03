@@ -51,7 +51,7 @@ export default {
                 .set({
                     category: this.category,
                     content: this.content,
-                    tags: this.tags,
+                    tags: `#${this.tags}`,
                     image: this.image,
                     userimage: this.store.userImage,
                     username: this.store.userName,

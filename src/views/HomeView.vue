@@ -10,7 +10,7 @@
         </v-card-title>
 
       </v-card>
-      <v-card id="cathCard" class="mx-auto" max-width="240">
+      <v-card id="cathCard" class="mx-auto" max-width="240" @click="goArt">
         <v-img src="@/assets/artshobby.png" height="200px" cover></v-img>
 
         <v-card-title>
@@ -18,7 +18,7 @@
         </v-card-title>
 
       </v-card>
-      <v-card id="cathCard" class="mx-auto" max-width="240">
+      <v-card id="cathCard" class="mx-auto" max-width="240" @click="goCol">
         <v-img src="@/assets/collectinghobby.png" height="200px" cover></v-img>
 
         <v-card-title>
@@ -26,7 +26,7 @@
         </v-card-title>
 
       </v-card>
-      <v-card id="cathCard" class="mx-auto" max-width="240">
+      <v-card id="cathCard" class="mx-auto" max-width="240" @click="goMak">
         <v-img src="@/assets/makinghobby.png" height="200px" cover></v-img>
 
         <v-card-title>
@@ -34,7 +34,7 @@
         </v-card-title>
 
       </v-card>
-      <v-card id="cathCard" class="mx-auto" max-width="240">
+      <v-card id="cathCard" class="mx-auto" max-width="240" @click="goPla">
         <v-img src="@/assets/playhobby.png" height="200px" cover></v-img>
 
         <v-card-title>
@@ -54,6 +54,18 @@ export default {
   methods: {
     goAct() {
       this.$router.push({ name: "activity" })
+    },
+    goArt() {
+      this.$router.push({ name: "art" })
+    },
+    goCol() {
+      this.$router.push({ name: "collect" })
+    },
+    goMak() {
+      this.$router.push({ name: "make" })
+    },
+    goPla() {
+      this.$router.push({ name: "play" })
     }
   }
 }

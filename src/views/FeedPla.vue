@@ -3,7 +3,7 @@
         <div class="row">
             <v-btn @click="goNewPost()" variant="tonal"> New Post </v-btn>
             <div id="search">
-                <v-text-field id="search" prepend-icon="mdi-magnify" v-model="searchQuery" @input="getAct"></v-text-field>
+                <v-text-field id="search" prepend-icon="mdi-magnify" v-model="searchQuery" @input="getPla"></v-text-field>
             </div>
         </div>
 
@@ -25,28 +25,28 @@ export default {
         };
     },
     mounted() {
-        this.getAct();
+        this.getPla();
     },
     methods: {
         goNewPost() {
             this.$router.push({ name: "newpost" });
         },
-        getAct() {
+        getPla() {
             this.documents = []
-            const collectionRef = db.collection("Activity");
+            const collectionRef = db.collection("Play");
             if (this.searchQuery === "") {
                 collectionRef.onSnapshot((querySnapshot) => {
                     this.documents = querySnapshot.docs.map((doc) => doc.data());
                 });
             } else {
-                db.collection("Activity")
+                db.collection("Play")
                     .where("tags", ">=", `#${this.searchQuery}`)
                     .where("tags", "<=", `#${this.searchQuery}` + "\uf8ff")
                     .onSnapshot((querySnapshot) => {
                         this.documents = querySnapshot.docs.map((doc) => doc.data());
                     });
             }
-            console.log("Activity documents: ", this.documents);
+            console.log("Play documents: ", this.documents);
         },
     },
 };
