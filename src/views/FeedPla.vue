@@ -1,6 +1,6 @@
 <template>
     <div class="main-activity">
-        <div class="row">
+        <div v-if="store.authenticated!=false" class="row">
             <v-btn @click="goNewPost()" variant="tonal" color='#12a8da'> New Post </v-btn>
             <div id="search">
                 <v-text-field id="search" prepend-icon="mdi-magnify" v-model="searchQuery" @input="getAct"></v-text-field>
@@ -16,12 +16,14 @@
 <script>
 import PostAct from "@/components/PostAct";
 import { db } from "@/firebase";
+import store from '../store'
 export default {
     components: { PostAct },
     data() {
         return {
             searchQuery: "",
             documents: [],
+            store
         };
     },
     mounted() {
