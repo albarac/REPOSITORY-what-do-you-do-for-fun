@@ -6,7 +6,7 @@
     </v-card-title>
 
     <v-card-text @click="goPopup" id="cardtext" class="text-h5 font-weight-bold">
-      " {{ info.content }} "
+      {{ info.content }}
     </v-card-text>
 
     <v-card-actions class="mt-auto">
